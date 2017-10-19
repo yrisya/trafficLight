@@ -1,0 +1,58 @@
+//constants
+#define BUTTON P1_6  
+#define R1 RED_LED 
+#define Y1 P1_1
+#define G1 P1_7
+#define R2 P1_5
+#define Y2 P1_4
+#define G2 P1_3
+ 
+
+//set ALL lights as output
+//set button as input
+void setup() {                
+  pinMode(R1, OUTPUT);
+  pinMode(Y1, OUTPUT);  
+  pinMode(G1, OUTPUT);
+  pinMode(R2, OUTPUT);
+  pinMode(Y2, OUTPUT);
+  pinMode(G2, OUTPUT);
+  pinMode(BUTTON, INPUT_PULLUP);
+}
+
+  
+// the setup routine runs once when you press reset:
+
+// the loop routine runs over and over again forever:
+void loop() {
+  digitalWrite(R1, HIGH);   // turn the LED on (HIGH is the voltage level)
+  digitalWrite(G2, HIGH);
+  delay (5000);
+  digitalWrite(R1, HIGH);
+  digitalWrite(G2, LOW);
+  digitalWrite(Y2, HIGH);
+  delay(1500);
+  digitalWrite(Y2, LOW);
+  digitalWrite(R2, HIGH);
+  delay(1000);
+  digitalWrite(R1, LOW);
+  digitalWrite(G1, HIGH);
+  delay(5000);
+  digitalWrite(G1, LOW);
+  digitalWrite(Y1, HIGH);            // wait for a second
+  delay(1500);
+  digitalWrite(Y1, LOW);
+  digitalWrite(R1, HIGH);
+  delay(1000);
+  digitalWrite(R2, LOW); 
+
+while (BUTTON == HIGH)
+{
+   digitalWrite(R1, HIGH);
+   digitalWrite(G2, HIGH);
+   digitalWrite(Y1, LOW);
+   digitalWrite(R2, LOW);
+   digitalWrite(G1, LOW);
+   digitalWrite(2, LOW);
+}
+}
