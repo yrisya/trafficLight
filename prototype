@@ -1,0 +1,19 @@
+//example
+
+void loop
+
+digitalWrite(mainGre, HIGH);
+while (buttonState == HIGH)
+{
+  mainGre, HIGH
+  delay(2000)
+  main Gre LOW
+  mainYEL HIGH
+  delay(2000)
+  mainYel LOW
+  mainRed HIGH
+  delay (200)
+  then side lights fcn
+  then back to mian light GReen
+  
+  set buttonState to LOW;
