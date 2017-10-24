@@ -1,0 +1,124 @@
+
+const int mainRed = P1_4;
+const int mainYel = P1_5;
+const int mainGre = P1_6;
+
+const int sideRed = P1_0;
+const int sideYel = P1_1;
+const int sideGre = P1_3;
+
+const int buttonPin = P1_7;
+
+//main light function
+void mainLightTransOff();
+
+void mainLightTransOn();
+
+//side light function
+void sideLight();
+
+void setup()
+{
+  // put your setup code here, to run once:
+  pinMode(mainRed, OUTPUT);
+  pinMode(mainYel, OUTPUT);
+  pinMode(mainGre, OUTPUT);
+  
+  pinMode(sideRed, OUTPUT);
+  pinMode(sideYel, OUTPUT);
+  pinMode(sideGre, OUTPUT);
+  
+  pinMode(buttonPin, INPUT_PULLUP);
+  
+  digitalWrite(sideRed, HIGH);
+  digitalWrite(sideYel, LOW);
+  digitalWrite(sideGre, LOW);
+}
+
+void loop()
+{
+  // put your main code here, to run repeatedly:
+  
+  int buttonState = digitalRead(buttonPin);
+  buttonState = LOW;
+
+  
+  digitalWrite(mainGre, HIGH);
+  
+  while(buttonState == HIGH);
+  {
+      mainLightTransOff();
+      
+      sideLight();
+      
+      //digitalWrite(sideRed, LOW);
+      
+      mainLightTransOn();
+      
+      digitalWrite(sideRed, HIGH);
+      digitalWrite(sideYel, LOW);
+      digitalWrite(sideGre, LOW);
+      
+      digitalWrite(mainGre, HIGH);
+      
+      buttonState = LOW;
+  }
+
+}
+
+void mainLightTransOff()
+{
+  
+  digitalWrite(mainRed, LOW);
+  digitalWrite(mainYel, LOW);
+  digitalWrite(mainGre, HIGH);
+  delay(3000);
+  
+  digitalWrite(mainRed, LOW);
+  digitalWrite(mainYel, HIGH);
+  digitalWrite(mainGre, LOW);
+  delay(2000);
+  
+  digitalWrite(mainRed, HIGH);
+  digitalWrite(mainYel, LOW);
+  digitalWrite(mainGre, LOW);
+ 
+}
+
+void mainLightTransOn()
+{
+  
+  digitalWrite(mainRed, HIGH);
+  digitalWrite(mainYel, LOW);
+  digitalWrite(mainGre, LOW);
+  delay(3000);
+  
+  digitalWrite(mainRed, LOW);
+  digitalWrite(mainYel, LOW);
+  digitalWrite(mainGre, HIGH);
+  //delay(3000);
+}
+
+void sideLight()
+{
+  
+    digitalWrite(sideRed, HIGH);
+    digitalWrite(sideYel, LOW);
+    digitalWrite(sideGre, LOW);
+    delay(3000);
+    
+    digitalWrite(sideRed, LOW);
+    digitalWrite(sideYel, LOW);
+    digitalWrite(sideGre, HIGH);
+    delay(3000);
+    
+    digitalWrite(sideRed, LOW);
+    digitalWrite(sideYel, HIGH);
+    digitalWrite(sideGre, LOW);
+    delay(1500);
+       
+    digitalWrite(sideRed, HIGH);
+    digitalWrite(sideYel, LOW);
+    digitalWrite(sideGre, LOW);
+    //delay(200);
+}
