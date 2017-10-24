@@ -1,0 +1,63 @@
+//simple button prompt test
+
+
+const int mainRed = P1_4;
+const int mainYel = P1_5;
+const int mainGre = P1_6;
+
+const int sideRed = P1_0;
+const int sideYel = P1_1;
+const int sideGre = P1_3;
+
+const int buttonPin = P2_3;
+
+////main light function
+//void mainLightTransOff();
+//
+//void mainLightTransOn();
+//
+////side light function
+//void sideLight();
+
+void setup()
+{
+  // put your setup code here, to run once:
+  pinMode(mainRed, OUTPUT);
+  pinMode(mainYel, OUTPUT);
+  pinMode(mainGre, OUTPUT);
+  
+  pinMode(sideRed, OUTPUT);
+  pinMode(sideYel, OUTPUT);
+  pinMode(sideGre, OUTPUT);
+  
+  pinMode(buttonPin, INPUT_PULLUP);
+  
+  digitalWrite(sideRed, HIGH);
+  digitalWrite(sideYel, LOW);
+  digitalWrite(sideGre, LOW);
+}
+
+void loop()
+{
+  // put your main code here, to run repeatedly:
+  
+  int buttonState = LOW;
+  
+  buttonState = digitalRead(buttonPin);
+  
+  if(buttonState == HIGH)
+  {
+    digitalWrite(sideRed, HIGH);
+    //delay(1000);
+    digitalWrite(mainGre, LOW);
+    //delay(1000);
+  }
+  else
+  {
+     digitalWrite(mainGre, HIGH);
+     //delay(1000);
+     digitalWrite(sideRed, LOW);
+     //delay(1000);
+  }
+}
+
