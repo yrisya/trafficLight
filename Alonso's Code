@@ -6,6 +6,8 @@
 #define R2 P1_5
 #define Y2 P1_4
 #define G2 P1_3
+
+ int count = 0;
  
 
 //set ALL lights as output
@@ -18,6 +20,14 @@ void setup() {
   pinMode(Y2, OUTPUT);
   pinMode(G2, OUTPUT);
   pinMode(BUTTON, INPUT_PULLUP);
+  
+  digitalWrite(R1, LOW);
+  digitalWrite(Y1, LOW);
+  digitalWrite(G1, HIGH);
+  digitalWrite(R2, HIGH);
+  digitalWrite(Y2, LOW);
+  digitalWrite(G2, LOW);
+  digitalWrite(BUTTON, LOW);
 }
 
   
